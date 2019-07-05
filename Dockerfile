@@ -37,7 +37,7 @@ WORKDIR /genode
 RUN git remote add componolit https://github.com/Componolit/genode.git
 RUN git fetch --all
 RUN ln -s /contrib /genode/contrib
-RUN find /genode/repos -name "*.port" | sed "s/.*\///g;s/\.port//g" | grep -v "qt5.*" | xargs /genode/tool/ports/prepare_port
+RUN find /genode/repos -name "*.port" | sed "s/.*\///g;s/\.port//g" | grep -v "qt5.*" | grep -v "fatfs" | xargs /genode/tool/ports/prepare_port
 WORKDIR /
 
 RUN git clone https://git.codelabs.ch/git/muen.git /muen

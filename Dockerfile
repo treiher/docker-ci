@@ -28,6 +28,10 @@ RUN apt update && apt upgrade -y && apt install -y --no-install-recommends \
         libxml2-utils \
         binutils-dev \
         zlib1g-dev \
+        tidy \
+        libelf-dev \
+        bc \
+        acpica-tools \
         && rm -rf /var/lib/apt/lists/*
 
 ENV PATH=/usr/local/gnat/bin:$PATH

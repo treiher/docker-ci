@@ -2,6 +2,9 @@ FROM jklmnn/componolit-ci:latest-gnat
 
 RUN apt update && apt upgrade -y && apt install -y --no-install-recommends \
 	gawk \
+        python \
+        bison \
+        flex \
 	autoconf \
 	xsltproc \
 	autogen \
@@ -13,6 +16,11 @@ RUN apt update && apt upgrade -y && apt install -y --no-install-recommends \
         libelf-dev \
         bc \
         acpica-tools \
+        xorriso \
+        xz-utils \
+        bzip2 \
+        grub-pc-bin \
+        cpio \
         && git clone https://git.codelabs.ch/git/muen.git /muen \
         && cd /muen \
         && git config --file=.gitmodules submodule.components/linux/src.url https://github.com/codelabs-ch/linux.git \

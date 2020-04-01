@@ -28,6 +28,11 @@ RUN apt update && apt upgrade -y && apt install -y --no-install-recommends \
         xorriso \
         qemu-system \
         ccache \
+        ed \
+        byacc \
+        iasl \
+        tidy \
+        zlib1g-dev \
         && wget -nv https://downloads.sourceforge.net/project/genode/genode-toolchain/19.05/genode-toolchain-19.05-x86_64.tar.xz -O /tmp/genode-toolchain-19.05-x86_64.tar.xz \
         && tar xPf /tmp/genode-toolchain-19.05-x86_64.tar.xz \
         && rm /tmp/genode-toolchain-19.05-x86_64.tar.xz \
@@ -35,8 +40,6 @@ RUN apt update && apt upgrade -y && apt install -y --no-install-recommends \
         && cd /genode \
         && git remote add componolit https://github.com/Componolit/genode.git && git fetch --all \
         && mkdir /contrib && ln -s /contrib /genode/contrib \
-        && find /genode/repos -name "*.port" | sed "s/.*\///g;s/\.port//g" | grep -v "qt5.*" | grep -v "fatfs" \
-        && find /genode/repos -name "*.port" | sed "s/.*\///g;s/\.port//g" | grep -v "qt5.*" | grep -v "fatfs" | xargs /genode/tool/ports/prepare_port \
         && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /

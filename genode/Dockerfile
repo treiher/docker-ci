@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM componolit/ci:gnat-community-2020
 
 RUN apt update && apt upgrade -y && apt install -y --no-install-recommends \
         ca-certificates \
